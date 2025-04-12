@@ -6,8 +6,29 @@
 
 you need access to a kubernetes cluster and kubetctl tool installed on your desktop.
 
+### Install the NGINX Ingress Controller
 
-#### helm install
+```
+helm install ingress-nginx ingress-nginx/ingress-nginx \
+--namespace ingress-nginx --create-namespace
+```
+
+#### Installing Cert-Manager
+
+```
+helm repo add jetstack https://charts.jetstack.io
+helm repo update
+```
+
+```
+helm install cert-manager jetstack/cert-manager \
+--namespace cert-manager --create-namespace \
+--version v1.12.0 \
+--set installCRDs=true
+```
+
+
+#### Install the application
 
 Simply go to the "helm" directory, edit the values.yaml file as needed, and install the building blocks. Done! 
 
@@ -36,6 +57,7 @@ kubectl  get ingress
 NAME                CLASS   HOSTS            ADDRESS           PORTS     AGE
 wordpress-ingress   nginx   go-bornholm.de   195.192.156.198   80, 443   132m
 ```
+
 
 After that, you browse to your wordpress config page and complete the setup.
 Do not forget to create a regulary backup of your wordpress data!
