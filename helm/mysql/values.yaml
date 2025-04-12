@@ -1,5 +1,5 @@
 replicaCount: 1
-namespace: wordpress
+namespace: gob
 
 image:
   repository: mysql
