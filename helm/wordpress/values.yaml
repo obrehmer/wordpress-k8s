@@ -3,8 +3,8 @@ namespace: gob
 domainname: go-bornholm.de
 
 image:
-  repository: olsarnow/wordpress
-  tag: "latest"
+  repository: wordpress
+  tag: "php8.4-apache"
 
 service:
   port: 80
